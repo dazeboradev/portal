@@ -3,54 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAZEBORA - Official Site</title>
+    <title>DAZEBORA | Playful Ideas, Technical Craft.</title>
     <style>
+        /* 全体の基本設定 (ダークテーマ) */
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #4CAF50; /* Godotやゲーム開発を連想させるグリーン */
+            --card-bg: #1e1e1e;
+        }
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
+        a { color: var(--accent-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ヘッダーとナビゲーション */
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        nav ul li a:hover { color: var(--accent-color); text-decoration: none; }
+
+        /* コンテンツエリア */
         .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            background-color: var(--card-bg);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1, h2, h3 { color: #fff; }
+        h2 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        /* ヒーローセクション (トップ) */
+        .hero {
             text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: none;
+            box-shadow: none;
+            padding: 60px 20px;
         }
-        h1 {
-            color: #2d3436;
-            margin-bottom: 0.5rem;
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: #aaa; }
+
+        /* Skills タグ風の装飾 */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
         }
-        p {
-            color: #636e72;
-            margin-bottom: 1.5rem;
+        .skill-tag {
+            background-color: #333;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #444;
         }
-        .link-box {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0984e3;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+
+        /* Coming Soon 用のアラート */
+        .coming-soon {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px dashed var(--accent-color);
+            border-radius: 8px;
         }
-        .link-box:hover {
-            background-color: #74b9ff;
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        /* スマホ向け調整 */
+        @media (max-width: 600px) {
+            .header-container { flex-direction: column; gap: 10px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            section { padding: 20px; }
         }
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="#" style="color: #fff;">DAZEBORA</a></div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="container">
-        <h1>DAZEBORA</h1>
-        <p>ここは DAZEBORA (デイズボラ) のポータルサイトです。</p>
-        <hr>
-        <p>現在開発中のゲームはこちら：</p>
-        <a href="/tetnum" class="link-box">Tetnum Demo をプレイする</a>
+        <section class="hero">
+            <h1>DAZEBORA</h1>
+            <p>独自のアイデアと技術で、新しい遊びの体験を。</p>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>DAZEBORA（デイズボラ）は、インディーゲームやアプリケーションの企画・開発を行う個人開発スタジオです。2025年より活動を開始しました。</p>
+            <p>プレイヤーへ楽しい体験を届けることを目標に、日々ものづくりに向き合っています。</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #aaa;">
+                <strong>News:</strong><br>
+                2026.02: DAZEBORAの公式Webサイトを開設しました。
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Games & Projects</h2>
+            <div class="coming-soon">
+                <h3>🚧 Coming Soon 🚧</h3>
+                <p>現在、オリジナルのパズルゲームを鋭意開発中です。<br>
+                作品のスクリーンショットや詳細情報がまとまり次第、順次こちらで公開してまいります。<br>
+                リリースまでもうしばらくお待ちください！</p>
+            </div>
+            </section>
+
+        <section id="skills">
+            <h2>Skills & Technology</h2>
+            <p>ゲーム開発からバックエンドの連携、開発ツールの制作まで、プロジェクトに応じた技術を選定しています。</p>
+            
+            <h3 style="font-size: 1.1rem; margin-top: 20px;">Game Engines</h3>
+            <div class="skills-list">
+                <span class="skill-tag">Godot Engine</span>
+                <span class="skill-tag">Unreal Engine</span>
+                <span class="skill-tag">Unity</span>
+            </div>
+
+            <h3 style="font-size: 1.1rem; margin-top: 20px;">Languages</h3>
+            <div class="skills-list">
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">GDScript</span>
+                <span class="skill-tag">Python</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>お仕事のご相談や、開発中のプロジェクトに関するお問い合わせなど、お気軽にご連絡ください。</p>
+            <ul>
+                <li><strong>Email:</strong> contact@dazebora.com </li>
+                <li><strong>X (Twitter):</strong> <a href="https://x.com/DAZEBORA" target="_blank" rel="noopener noreferrer">@DAZEBORA</a></li>
+            </ul>
+        </section>
     </div>
+
+    <footer>
+        &copy; 2026 DAZEBORA. All Rights Reserved.
+    </footer>
+
 </body>
 </html>
